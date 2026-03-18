@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite Antique Footer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+ <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+             :root {
+      --primary: #b8a97a;
+      --white: #ffffff;
+      --text-dark: #4a3d2c;
+      --text-dark7: #3d2f20;
+      --white: #fff;
+      --bg: #f8f5f0;
+        --primary-dark: #9f8f56;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Inter', sans-serif;
+      --divider: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      font-family: "Roboto", sans-serif;
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--white);
+      color: var(--text-dark);
+      padding-top: 30px; /* Match nav height */
+    }
+
+    nav {
+      background-color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .menu-toggle {
+      font-size: 1.6rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .brand-name {
+      display: flex;
+      align-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      transform: translateX(100%);
+      opacity: 0;
+      animation: slideInRight 2.2s ease-out forwards;
+      gap: 0.4rem;
+    }
+
+    .brand-name i {
+      font-size: 1.3rem;
+    }
+
+    @keyframes slideInRight {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+   .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000; /* Below side-menu (z-index: 1001), above nav (z-index: 1000) */
+  display: none;
+}
+    .overlay.show {
+      display: block;            
+    }
+
+      .side-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      max-width: 100vw;
+      height: 100vh;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 1.5rem;
+      transition: left 0.3s ease-in-out;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .side-menu.show {
+      left: 0;
+    }
+
+    .close-btn {
+      align-self: flex-end;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      color: #3c2f1e;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #3c2f1e;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.7rem 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item i {
+      width: 22px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+      border-radius: 6px;
+    }
+
+    .nav-divider {
+      border: none;
+      border-top: 1px solid var(--divider);
+      margin: 0.4rem 0 0.7rem 0;
+    }
+
+    @media (min-width: 769px) {
+      .side-menu {
+        width: 350px;
+      }
+    }
+    
+      .yrbody {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-dark7);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .checkout-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: var(--white);
+      padding: 40px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border: 2px solid lightgrey;
+      border-radius: 3px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn { from {opacity:0; transform: translateY(10px);} to {opacity:1; transform:none;} }
+
+    form { display: flex; flex-direction: column; }
+
+    label { margin-top: 18px; margin-bottom: 6px; font-weight: 500; display: flex; align-items:center; }
+
+    label i { margin-right: 8px; color: var(--primary-dark); width: 18px; text-align: center; }
+
+    input, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus { outline: none; border-color: var(--primary-dark); }
+
+    input.invalid { border-color: red !important; }
+
+    .error-message {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-family: var(--font-serif);
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    .order-summary {
+      background-color: #faf9f6;
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .order-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; gap: 12px; }
+
+    .order-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
+
+    .order-total { font-weight: 600; font-size: 1.3rem; text-align: right; margin-top: 24px; color: var(--primary-dark); }
+
+    .payment-methods { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+
+    .payment-methods label { display: flex; align-items: center; gap: 10px; font-weight: 400; }
+
+    .card-details { display: none; flex-direction: column; gap: 12px; margin-top: 20px; }
+
+    .checkout-btn {
+      margin-top: 40px;
+      padding: 16px;
+      border: none;
+      background: linear-gradient(135deg, #c8b473, #b8a97a);
+      color: var(--white);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 18px rgba(184, 169, 122, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .checkout-btn:hover { background: linear-gradient(135deg, #a8955f, #9f8f56); box-shadow: 0 12px 24px rgba(184, 169, 122, 0.45); transform: translateY(-2px); }
+
+    .loading-spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--primary-dark);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin { 0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);} }
+
+    .success-message {
+      text-align: center;
+      padding: 60px 20px;
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      background: #f0f9f5;
+      border: 2px solid #cde8df;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .checkbox-row { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
+
+    .checkbox-row input[type="checkbox"] { width: 18px; height: 18px; }
+
+    .billing-section { display: none; flex-direction: column; }
+
+    @media (max-width: 768px) {
+      .checkout-wrapper { grid-template-columns: 1fr; padding: 20px; }
+      h1 { font-size: 2rem; }
+    }
+
+    
+    footer {
+      width: 100%;
+      background-color: #2e2418;
+      padding: 60px 5vw 30px;
+      border-top: 2px solid #b8a97a;
+    }
+
+    .footer-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-column h3,
+    .footer-column h4 {
+      color: #b8a97a;
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+
+    .footer-column p,
+    .footer-column ul {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #b8a97a;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b8a97a;
+      font-size: 18px;
+      border: 1px solid #b8a97a;
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background-color: #b8a97a;
+      color: #2e2418;
+      transform: translateY(-6px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(184, 169, 122, 0.5);
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 12px 14px;
+      border: 1px solid #b8a97a;
+      background: #3a2f22;
+      color: #ffffff;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .newsletter-form button {
+      padding: 12px 14px;
+      background-color: #b8a97a;
+      color: #4a3d2c;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+      font-size: 15px;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #a4936b;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 14px;
+      color: #cfcfcf;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #6c5d47;
+    }
+
+    /* Alert Styles */
+    #subscribeAlert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #b8a97a;
+  color: #2e2418;
+  padding: 12px 28px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  display: none;
+  z-index: 9999;
+  animation: fadeInOut 3s ease forwards;
+  white-space: nowrap;
+  text-align: center;
+}
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+      10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 50px 6vw 20px;
+      }
+
+      .footer-column h3,
+      .footer-column h4 {
+        font-size: 18px;
+      }
+
+      .footer-column p,
+      .footer-column ul {
+        font-size: 14px;
+      }
+
+      .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-container {
+        flex-direction: column;
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-column {
+        text-align: center;
+      }
+
+      .footer-bottom {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+    }
+      .checkout-header {
+      max-width: 1200px;
+      margin: 30px auto 40px;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #7b5e2e, #b8a97a);
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+      text-align: center;
+      color: #fff;
+    }
+
+    .checkout-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 500px) {
+
+      .preview-header h1 {
+        font-size: 1.6rem;
+      }
+      }
+        .header-cart-link {
+    position: relative;
+    margin-left: 12px;
+    color: #a28b6a;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+
+  .header-cart-link:hover {
+    color: #2e2418;
+  }
+  .cart-count-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #a28b6a;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    line-height: 1;
+    border: 1px solid #fff;
+  }
+
+  </style>
+</head>
+<body>
+    <!-- NAV -->
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="brand-name">
+      <span>Retrospect Vintage</span>
+      <a href="cart.html" class="header-cart-link" title="View Cart">
+  <i class="fas fa-shopping-cart"></i>
+  <span class="cart-count-badge" id="cartCount">0</span>
+</a>
+    </div>
+  </nav>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <!-- SIDE MENU -->
+  <div class="side-menu" id="sideMenu">
+    <div class="close-btn" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+     <a href="index.html" class="nav-item"><i class="fas fa-home"></i> Home</a><hr class="nav-divider" />
+    <a href="aboutus.html" class="nav-item"><i class="fas fa-user"></i> About Us</a><hr class="nav-divider" />
+   <a href="collection.html" class="nav-item"><i class="fas fa-th-large"></i> Collection</a>
+<hr class="nav-divider" />
+   <a href="track.html" class="nav-item"><i class="fas fa-location-dot"></i> Track Order</a>
+<hr class="nav-divider" />
+    <a href="request.html" class="nav-item"><i class="fas fa-list"></i> Request List</a><hr class="nav-divider" />
+    <a href="sell.html" class="nav-item"><i class="fas fa-store"></i> Sell Your Items</a><hr class="nav-divider" />
+    <a href="contact.html" class="nav-item"><i class="fas fa-envelope"></i> Contact</a><hr class="nav-divider" />
+    <a href="faqs.html" class="nav-item"><i class="fas fa-question-circle"></i> FAQs</a><hr class="nav-divider" />
+    <a href="blog.html" class="nav-item"><i class="fas fa-blog"></i> Antique Blog</a><hr class="nav-divider" />
+    <a href="signin.html" class="nav-item"><i class="fas fa-sign-in-alt"></i> Sign In</a><hr class="nav-divider" />
+  </div>
+
+     <div class="yrbody">
+  <div class="container" id="container">
+      <div class="checkout-header"> 
+    <h1>Checkout</h1> </div>
+    <div class="checkout-wrapper" id="checkoutWrapper">
+      <form id="checkoutForm" novalidate>
+        <!-- Shipping Info -->
+        <div class="section-title">Shipping Address</div>
+
+        <label for="fullName"><i class="fa fa-user"></i> Full Name</label>
+        <input type="text" id="fullName" name="name" autocomplete="name" required />
+        <div class="error-message" id="fullNameError">Please enter your full name.</div>
+
+        <label for="email"><i class="fa fa-envelope"></i> Email Address</label>
+        <input type="email" id="email" name="email" autocomplete="email" required />
+        <div class="error-message" id="emailError">Invalid email address.</div>
+
+        <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
+        <input type="tel" id="phone" name="tel" autocomplete="tel" required />
+        <div class="error-message" id="phoneError">Phone must be in format (123) 456-7890.</div>
+
+        <label for="address"><i class="fa fa-home"></i> Street Address</label>
+        <input type="text" id="address" name="street-address" autocomplete="street-address" required />
+        <div class="error-message" id="addressError">Please enter your street address.</div>
+
+        <label for="city"><i class="fa fa-building"></i> City</label>
+        <input type="text" id="city" name="address-level2" autocomplete="address-level2" required />
+        <div class="error-message" id="cityError">Please enter your city.</div>
+
+        <label for="state"><i class="fa fa-map-marker"></i> State/Province</label>
+        <input type="text" id="state" name="address-level1" autocomplete="address-level1" required />
+        <div class="error-message" id="stateError">Please enter your state/province.</div>
+
+        <label for="zip"><i class="fa fa-location-arrow"></i> Postal Code</label>
+        <input type="text" id="zip" name="postal-code" autocomplete="postal-code" required />
+        <div class="error-message" id="zipError">Invalid postal code.</div>
+
+        <label for="country"><i class="fa fa-flag"></i> Country</label>
+        <select id="country" name="country" autocomplete="country" required>
+          <option value="">Select a country</option>
+          <option>United States</option>
+          <option>Canada</option>
+        </select>
+        <div class="error-message" id="countryError">Please select your country.</div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="sameAsShipping" checked />
+          <label for="sameAsShipping">Billing address same as shipping</label>
+        </div>
+
+        <div class="billing-section" id="billingSection">
+          <div class="section-title">Billing Address</div>
+
+          <label for="billingAddress"><i class="fa fa-home"></i> Street Address</label>
+          <input type="text" id="billingAddress" autocomplete="street-address" />
+          <div class="error-message" id="billingAddressError">Please enter billing street address.</div>
+
+          <label for="billingCity"><i class="fa fa-building"></i> City</label>
+          <input type="text" id="billingCity" autocomplete="address-level2" />
+          <div class="error-message" id="billingCityError">Please enter billing city.</div>
+
+          <label for="billingState"><i class="fa fa-map-marker"></i> State/Province</label>
+          <input type="text" id="billingState" autocomplete="address-level1" />
+          <div class="error-message" id="billingStateError">Please enter billing state/province.</div>
+
+          <label for="billingZip"><i class="fa fa-location-arrow"></i> Postal Code</label>
+          <input type="text" id="billingZip" autocomplete="postal-code" />
+          <div class="error-message" id="billingZipError">Invalid billing postal code.</div>
+
+          <label for="billingCountry"><i class="fa fa-flag"></i> Country</label>
+          <select id="billingCountry" autocomplete="country">
+            <option value="">Select a country</option>
+            <option>United States</option>
+            <option>Canada</option>
+          </select>
+          <div class="error-message" id="billingCountryError">Please select billing country.</div>
+        </div>
+
+        <div class="section-title">Payment Method</div>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fa fa-cc-visa" style="color:navy;"></i>
+          <i class="fa fa-cc-amex" style="color:blue;"></i>
+          <i class="fa fa-cc-mastercard" style="color:red;"></i>
+          <i class="fa fa-cc-discover" style="color:orange;"></i>
+          <i class="fa fa-cc-diners-club" style="color:#006272;"></i>
+          <i class="fa fa-cc-jcb" style="color:#0031AD;"></i>
+          <i class="fa fa-cc-paypal" style="color:#003087;"></i>
+          <i class="fa fa-google-wallet" style="color:#4285F4;"></i>
+        </div>
+
+        <div class="payment-methods">
+          <label><input type="radio" name="payment" value="card" checked /> Credit/Debit Card</label>
+          <label><input type="radio" name="payment" value="paypal" /> PayPal</label>
+          <label><input type="radio" name="payment" value="bank" /> Bank Transfer</label>
+        </div>
+
+        <div class="card-details" id="cardDetails">
+          <label for="cardNumber"><i class="fa fa-credit-card"></i> Card Number</label>
+          <input type="text" id="cardNumber" name="cc-number" placeholder="1234 5678 9012 3456" autocomplete="cc-number" required />
+          <div class="error-message" id="cardNumberError">Invalid credit card number.</div>
+
+          <label for="expiry"><i class="fa fa-calendar"></i> Expiry Date</label>
+          <input type="text" id="expiry" name="cc-exp" placeholder="MM/YY" autocomplete="cc-exp" required />
+          <div class="error-message" id="expiryError">Invalid or expired date.</div>
+
+          <label for="cvv"><i class="fa fa-lock"></i> CVV</label>
+          <input type="text" id="cvv" name="cc-csc" placeholder="123" autocomplete="cc-csc" required />
+          <div class="error-message" id="cvvError">Invalid CVV.</div>
+        </div>
+
+        <button class="checkout-btn" type="submit" id="submitBtn">Place Order</button>
+      </form>
+
+      <!-- Order Summary -->
+      <div class="order-summary" id="orderSummary">
+        <div class="section-title">Order Summary</div>
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+    <div class="success-message" id="successMessage" style="display:none;"> Thank you! Your order has been placed successfully.</div>
+  </div>
+
+  <script>
+    
+function generateTrackingNumber () {
+  const prefix   = "ELT";
+  const random   = () => Math.random().toString(36).slice(2, 6).toUpperCase(); // 4 chars
+  const timePart = Date.now().toString().slice(-5);                              // last 5 digits
+  return `${prefix}-${random()}-${random()}-${timePart}`;
+}
+    // ---- ORDER SUMMARY (unchanged) ----
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const orderSummary = document.getElementById("orderSummary");
+
+    if (!cart.length) {
+      orderSummary.innerHTML += "<p>Your cart is empty.</p>";
+    } else {
+      let total = 0;
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "order-item";
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" />
+          <span>${item.title} × ${item.quantity}</span>
+          <span>$${subtotal.toFixed(2)}</span>
+        `;
+        orderSummary.appendChild(itemDiv);
+      });
+
+      const totalDiv = document.createElement("div");
+      totalDiv.className = "order-total";
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+      orderSummary.appendChild(totalDiv);
+    }
+
+    // ---- PAYMENT METHOD TOGGLE ----
+    const paymentRadios = document.querySelectorAll('input[name="payment"]');
+    const cardDetails = document.getElementById("cardDetails");
+
+    function updateCardDetailsVisibility() {
+      const isCard = document.querySelector('input[name="payment"]:checked').value === "card";
+      cardDetails.style.display = isCard ? "flex" : "none";
+      cardDetails.querySelectorAll("input").forEach(inp => inp.required = isCard);
+    }
+
+    paymentRadios.forEach(r => r.addEventListener("change", updateCardDetailsVisibility));
+    updateCardDetailsVisibility();
+
+    // ---- BILLING SECTION TOGGLE ----
+    const sameAsShipping = document.getElementById("sameAsShipping");
+    const billingSection = document.getElementById("billingSection");
+
+    function updateBillingVisibility() {
+      const show = !sameAsShipping.checked;
+      billingSection.style.display = show ? "flex" : "none";
+      billingSection.querySelectorAll("input,select").forEach(i => i.required = show);
+    }
+
+    sameAsShipping.addEventListener("change", updateBillingVisibility);
+    updateBillingVisibility();
+
+    // ---- VALIDATION HELPERS ----
+    const reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const rePhone = /^\(\d{3}\) \d{3}-\d{4}$/;
+    const reZip = /^[A-Za-z0-9\s\-]{3,10}$/;
+    const reCVV = /^\d{3,4}$/;
+
+    function formatPhone(val) {
+      let v = val.replace(/\D/g, "").substring(0, 10);
+      const a = v.substring(0,3);
+      const b = v.substring(3,6);
+      const c = v.substring(6,10);
+      if (v.length > 6) return `(${a}) ${b}-${c}`;
+      if (v.length > 3) return `(${a}) ${b}`;
+      if (v.length > 0) return `(${a}`;
+      return "";
+    }
+
+    function formatCard(val) {
+      return val.replace(/\D/g, "").substring(0,16).replace(/(.{4})/g, "$1 ").trim();
+    }
+
+    function formatExpiry(val) {
+      let v = val.replace(/\D/g, "").substring(0,4);
+      if (v.length >= 3) return v.replace(/(\d{2})(\d{1,2})/, "$1/$2");
+      return v;
+    }
+
+    function luhnCheck(num) {
+      const digits = num.replace(/\s+/g, "");
+      let sum = 0, flip = false;
+      for (let i = digits.length - 1; i >= 0; i--) {
+        let n = parseInt(digits[i]);
+        if (flip) { n *= 2; if (n > 9) n -= 9; }
+        sum += n; flip = !flip;
+      }
+      return sum % 10 === 0 && digits.length >= 13 && digits.length <= 19;
+    }
+
+    function validateExpiry(val) {
+      const m = val.match(/^(0[1-9]|1[0-2])\/(\d{2})$/);
+      if (!m) return false;
+      const month = parseInt(m[1]);
+      const year = 2000 + parseInt(m[2]);
+      const now = new Date();
+      const exp = new Date(year, month-1, 1);
+      return exp >= new Date(now.getFullYear(), now.getMonth(), 1);
+    }
+
+    // ---- FIELD DEFINITIONS ----
+    const fields = {
+      fullName: { el: document.getElementById("fullName"), err: document.getElementById("fullNameError"), validate: v=>v.trim().length>1 },
+      email: { el: document.getElementById("email"), err: document.getElementById("emailError"), validate: v=>reEmail.test(v) },
+      phone: { el: document.getElementById("phone"), err: document.getElementById("phoneError"), validate: v=>rePhone.test(v) },
+      address: { el: document.getElementById("address"), err: document.getElementById("addressError"), validate: v=>v.trim().length>5 },
+      city: { el: document.getElementById("city"), err: document.getElementById("cityError"), validate: v=>v.trim().length>1 },
+      state: { el: document.getElementById("state"), err: document.getElementById("stateError"), validate: v=>v.trim().length>1 },
+      zip: { el: document.getElementById("zip"), err: document.getElementById("zipError"), validate: v=>reZip.test(v) },
+      country: { el: document.getElementById("country"), err: document.getElementById("countryError"), validate: v=>v.trim().length>0 },
+      cardNumber: { el: document.getElementById("cardNumber"), err: document.getElementById("cardNumberError"), validate: v=>luhnCheck(v) },
+      expiry: { el: document.getElementById("expiry"), err: document.getElementById("expiryError"), validate: v=>validateExpiry(v) },
+      cvv: { el: document.getElementById("cvv"), err: document.getElementById("cvvError"), validate: v=>reCVV.test(v) },
+    };
+
+    // ---- FORMAT HANDLERS ----
+    fields.phone.el.addEventListener("input", e => { e.target.value = formatPhone(e.target.value); });
+    fields.cardNumber.el.addEventListener("input", e => { e.target.value = formatCard(e.target.value); });
+    fields.expiry.el.addEventListener("input", e => { e.target.value = formatExpiry(e.target.value); });
+
+    // ---- LIVE VALIDATION ----
+    Object.values(fields).forEach(({el, err, validate}) => {
+      el.addEventListener("blur", () => { validateField(el, err, validate); });
+      el.addEventListener("input", () => { if (validate(el.value)) clearError(el, err); });
+    });
+
+    function validateField(el, err, fn) {
+      if (fn(el.value)) {
+        clearError(el, err);
+        return true;
+      } else {
+        showError(el, err);
+        return false;
+      }
+    }
+
+    function showError(el, err) {
+      el.classList.add("invalid");
+      err.style.display = "block";
+    }
+
+    function clearError(el, err) {
+      el.classList.remove("invalid");
+      err.style.display = "none";
+    }
+
+    // ---- SUBMIT HANDLER ----
+    const form = document.getElementById("checkoutForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const successMsg = document.getElementById("successMessage");
+    const wrapper = document.getElementById("checkoutWrapper");
+
+    form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  // 🚫 Prevent submit if cart is empty
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (!cart.length) {
+    // ── Create modal once (lazy‑loaded) ──
+    let modal = document.getElementById("emptyCartModal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "emptyCartModal";
+      modal.style.cssText = `
+        position:fixed;inset:0;display:flex;justify-content:center;align-items:center;
+        background:rgba(60,42,24,0.6);z-index:999;font-family:'Georgia',serif;
+      `;
+      modal.innerHTML = `
+        <div style="
+          background:#fffaf0;border:3px solid #c2a76d;padding:1.8rem;border-radius:10px;
+          max-width:380px;width:90%;color:#5a4327;box-shadow:0 0 15px rgba(96,59,21,0.3);
+          position:relative;text-align:center;
+        ">
+          <span style="
+            position:absolute;top:0.4rem;right:0.8rem;font-size:1.6rem;cursor:pointer;
+            color:#8b6b3e;
+          " onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+          <h2 style="margin-top:0;font-size:1.4rem;">🧺 Your Cart Is Empty</h2>
+          <p style="margin:0.8rem 0 0;font-size:1rem;">
+            Please add some charming treasures before checking out.
+          </p>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+    modal.style.display = "flex";
+    return;
+  }
+
+  // ✅ Validate all visible fields
+  let valid = true;
+  Object.values(fields).forEach(f => {
+    if (f.el.closest(".card-details") && cardDetails.style.display === "none") return; // skip card if not visible
+    if (f.el.closest("#billingSection") && billingSection.style.display === "none") return; // skip billing if hidden
+    if (!validateField(f.el, f.err, f.validate)) valid = false;
+  });
+  if (!valid) return;
+
+  // ⏳ Show spinner
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Processing";
+  const spinner = document.createElement("div");
+  spinner.className = "loading-spinner";
+  submitBtn.appendChild(spinner);
+
+  setTimeout(() => {
+    const trackingNumber = generateTrackingNumber();
+
+    // 🧺 Hide checkout section
+    wrapper.style.display = "none";
+
+    // ✅ Show styled success message
+    successMsg.innerHTML = `
+      <div style="
+        background-color:#fdf6e3;border:2px solid #c2a76d;padding:2rem;border-radius:12px;
+        font-family:'Georgia',serif;color:#5a4327;box-shadow:0 0 10px rgba(194,167,109,0.3);
+        text-align:center;max-width:500px;margin:0 auto;
+      ">
+        <h2 style="margin-bottom:1rem;font-size:1.8rem;">🧺 Thank you for your purchase!</h2>
+        <p style="font-size:1.1rem;margin-bottom:1rem;">Your order has been placed successfully.</p>
+        <p style="font-size:1.1rem;">Your tracking number:</p>
+        <div style="
+          font-size:1.5rem;font-weight:bold;background:#fff9e6;border:1px dashed #c2a76d;
+          padding:0.5rem 1rem;margin-top:0.5rem;display:inline-block;
+        ">${trackingNumber}</div>
+      </div>
+    `;
+    successMsg.style.display = "block";
+    successMsg.style.display = "block";
+successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // 🧹 Clear cart
+    localStorage.removeItem("cart");
+  }, 2000);
+});
+  </script>
+  </div>
+
+
+  <!-- Footer Start -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- About -->
+      <div class="footer-column">
+        <h3>Retrospect Vintage</h3>
+        <p>
+          At Retrospect Vintage, we curate timeless treasures — from Victorian pieces to Art Deco rarities. We bring heritage to your home, ethically sourced and authentically restored.
+        </p>
+        <div class="social-icons">
+         <a href="https://www.facebook.com/retrospectvintage085" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="footer-column">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Furniture</a></li>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Ceramics</a></li>
+          <li><a href="#">Textiles</a></li>
+          <li><a href="#">Wall Art</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collection.html">Shop</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-column">
+        <h4>Stay in the Loop</h4>
+        <p>Get exclusive antique drops & updates directly in your inbox.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNewsletter(event)">
+          <input type="email" id="newsletterEmail" placeholder="Your Email Address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Retrospect Vintage. All rights reserved. | Crafted with heritage.
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Subscribe Alert -->
+  <div id="subscribeAlert">Thank you for subscribing!</div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function subscribeNewsletter(event) {
+      event.preventDefault(); // Prevent page reload
+      const emailInput = document.getElementById("newsletterEmail");
+      if (emailInput.value.trim() !== "") {
+        const alertBox = document.getElementById("subscribeAlert");
+        alertBox.style.display = "block";
+        emailInput.value = "";
+        setTimeout(() => {
+          alertBox.style.display = "none";
+        }, 3000);
+      }
+      return false;
+    }
+  </script>
+      <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      const overlay = document.getElementById("overlay");
+      const isOpen = menu.classList.contains("show");
+      menu.classList.toggle("show");
+      overlay.classList.toggle("show");
+      document.body.classList.toggle("menu-open", !isOpen);
+    }
+  </script>
+  <script>
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    const badge = document.getElementById("cartCount");
+    if (badge) badge.textContent = count;
+  }
+
+  document.addEventListener("DOMContentLoaded", updateCartCount);
+</script>
+</body>
+</html>

@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite Antique Footer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+ <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+             :root {
+      --primary: #b8a97a;
+      --white: #ffffff;
+      --text-dark: #4a3d2c;
+      --divider: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      font-family: "Roboto", sans-serif;
+      font-family: 'Raleway', sans-serif;
+      padding-top: 30px; /* Match nav height */
+      background-color: #fdfaf6;
+      color: #3d2b1f;
+    }
+
+    nav {
+      background-color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .menu-toggle {
+      font-size: 1.6rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .brand-name {
+      display: flex;
+      align-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      transform: translateX(100%);
+      opacity: 0;
+      animation: slideInRight 2.2s ease-out forwards;
+      gap: 0.4rem;
+    }
+
+    .brand-name i {
+      font-size: 1.3rem;
+    }
+
+    @keyframes slideInRight {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+   .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000; /* Below side-menu (z-index: 1001), above nav (z-index: 1000) */
+  display: none;
+}
+    .overlay.show {
+      display: block;            
+    }
+
+      .side-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      max-width: 100vw;
+      height: 100vh;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 1.5rem;
+      transition: left 0.3s ease-in-out;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .side-menu.show {
+      left: 0;
+    }
+
+    .close-btn {
+      align-self: flex-end;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      color: #3c2f1e;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #3c2f1e;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.7rem 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item i {
+      width: 22px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+      border-radius: 6px;
+    }
+
+    .nav-divider {
+      border: none;
+      border-top: 1px solid var(--divider);
+      margin: 0.4rem 0 0.7rem 0;
+    }
+
+    @media (min-width: 769px) {
+      .side-menu {
+        width: 350px;
+      }
+    }
+
+    /* === CAROUSEL === */
+    .carousel-section {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    .carousel-container {
+      display: flex;
+      width: fit-content;
+      height: 500px;
+      transition: transform 1s ease-in-out;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100vw;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      background: var(--primary);
+      color: var(--text-dark);
+      transition: background-color 0.5s ease;
+      position: relative;
+    }
+    .carousel-slide:nth-child(6n+1) {
+  background-color: #b8a97a;
+  color: #3c2f1e; /* Darker text for better contrast */
+}
+
+.carousel-slide:nth-child(6n+2) {
+  background-color: #d2c3a3;
+  color: #2e2618;
+}
+
+.carousel-slide:nth-child(6n+3) {
+  background-color: #b8a97a;
+  color: #3c2f1e;
+}
+
+.carousel-slide:nth-child(6n+4) {
+  background-color: #d2c3a3;
+  color: #2e2618;
+}
+
+.carousel-slide:nth-child(6n+5) {
+  background-color: #b8a97a;
+  color: #3c2f1e;
+}
+
+.carousel-slide:nth-child(6n+6) {
+  background-color: #d2c3a3;
+  color: #2e2618;
+}
+
+/* Clone of first slide (loop support) */
+.carousel-slide:nth-child(7) {
+  background-color: #b8a97a;
+  color: #3c2f1e;
+}
+    .carousel-slide h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1.7px;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+    }
+
+    .carousel-slide p {
+      max-width: 600px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      font-family: "Roboto", sans-serif;
+      margin: 0 auto;
+      text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+    }
+
+    .carousel-slide .italic-note {
+      margin-top: 1.5rem;
+      font-style: italic;
+      font-size: 1.1rem;
+      font-family: "Roboto", sans-serif;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-container {
+        height: 320px;
+      }
+      .carousel-slide {
+        height: 320px;
+        padding: 1rem;
+      }
+      .carousel-slide h2 {
+        font-size: 2rem;
+      }
+      .carousel-slide p {
+        font-size: 1.05rem;
+        max-width: 90%;
+      }
+      .carousel-slide .italic-note {
+        font-size: 0.95rem;
+      }
+    }
+    
+    
+    header {
+      background: linear-gradient(135deg, #5e3929, #a86c4d);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 1.5em;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 60px;
+      height: 4px;
+      background-color: #fff;
+      transform: translateX(-50%);
+      border-radius: 10px;
+    }
+
+    .request-list-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff8ef;
+      border-radius: 24px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+    }
+
+    .request-list-container h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2em;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #8b5e3c;
+    }
+
+    .request-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 25px;
+      padding: 25px;
+      margin-bottom: 25px;
+      background-color: #fff;
+      border-radius: 18px;
+      border-left: 8px solid #cbb397;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .request-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .request-icon {
+      font-size: 2.8em;
+      color: #a86c4d;
+      flex-shrink: 0;
+    }
+
+    .request-details h3 {
+      font-family: 'Cinzel', serif;
+      margin: 0 0 8px;
+      font-size: 1.3em;
+      color: #3d2b1f;
+    }
+
+    .request-details p {
+      margin: 4px 0;
+      font-size: 0.96em;
+      color: #444;
+    }
+
+    .request-details .status {
+      font-weight: bold;
+      margin-top: 12px;
+      font-size: 0.95em;
+    }
+
+    .request-footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1em;
+      color: #6d5744;
+      padding: 10px 20px;
+    }
+
+    .request-footer i {
+      color: #a86c4d;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .request-item {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .request-icon {
+        font-size: 2.2em;
+      }
+
+      .request-list-container {
+        padding: 20px;
+        margin: 20px;
+      }
+    }
+    /* OVERLAY */
+.antique-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(60, 45, 30, 0.6);
+  z-index: 998;
+  display: none;
+  backdrop-filter: blur(2px);
+}
+
+/* MODAL WRAPPER */
+.antique-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  display: none;
+  width: 90%;
+  max-width: 480px;      
+}
+
+/* MODAL BOX STYLING */
+.antique-modal-box {
+  background: #fff8ef;
+  color: #4a3d2c;
+  border: 2px solid #cbb397;
+  border-radius: 20px;
+  padding: 30px 28px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  font-family: 'Cinzel', serif;
+  position: relative;
+  text-align: center;
+}
+
+/* MODAL TITLE */
+.antique-modal-box h3 {
+  margin-top: 0;
+  font-size: 1.4em;
+  color: #5e3929;
+}
+
+/* MODAL TEXT */
+.antique-modal-box p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  line-height: 1.6;
+  color: #3d2b1f;
+  margin: 15px 0 0;
+}
+
+/* CLOSE BUTTON */
+.antique-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  color: #a86c4d;
+  cursor: pointer;
+  font-family: serif;
+  font-weight: bold;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 480px) {
+  .antique-modal-box {
+    padding: 22px 20px;
+  }
+
+  .antique-close-btn {
+    top: 10px;
+    right: 12px;
+    font-size: 1.3em;
+  }
+
+  .antique-modal-box p {
+    font-size: 0.95em;
+  }
+}
+body.modal-open .float-btn {
+  display: none;
+}
+    .float-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #7e5e3c;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 22px;
+      font-size: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .float-btn:hover {
+      background: #5e4425;
+    }
+
+    .float-btn i {
+      margin-right: 8px;
+    }
+    
+    .modal {
+  max-height: 90vh;
+  overflow-y: auto; /* ✅ allows internal scroll */
+  -webkit-overflow-scrolling: touch; /* ✅ smooth scroll on iOS */
+}
+    
+    .modal-overlay {
+      display: none;    
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      padding-top: 100px
+    }
+
+    .modal {
+  background: #fffdf8;
+  width: 90%;
+  max-width: 520px;
+  max-height: 80vh;           /* Limit height to viewport */
+  overflow-y: auto;           /* Enables vertical scrolling */
+  border-radius: 15px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal h2 {
+      font-family: 'Cinzel', serif;
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .modal form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal input[type="text"],
+    .modal input[type="email"],
+    .modal textarea {
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #d6c4b2;
+      border-radius: 8px;
+      font-size: 15px;
+      background: white;
+      color: #4a3d2c;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .modal textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .file-upload {
+      margin-bottom: 20px;
+    }
+
+    .file-upload input[type="file"] {
+      display: none;
+    }
+
+.custom-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #b9a78e;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fcf9f4;
+  cursor: pointer;
+  color: #4a3d2c;
+  font-size: 15px;
+  transition: border 0.3s ease;
+  text-align: center;
+
+  gap: 10px; /* ✅ Add this line */
+}
+    .custom-upload:hover {
+      border-color: #7e5e3c;
+    }
+
+    .file-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background-color: #e2d4c1;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #7e5e3c;
+      transition: width 0.3s ease;
+    }
+
+    .modal button {
+      background: #7e5e3c;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .modal button:hover {
+      background: #5e4425;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .modal-close:hover {
+      color: #444;
+    }
+
+    .modal-message {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+    }
+
+    .success {
+      color: #27ae60;
+    }
+
+    .error {
+      color: #e74c3c;
+    }
+
+    @media (max-width: 500px) {
+      .modal {
+        padding: 25px;
+      }
+    }
+    
+    footer {
+      width: 100%;
+      background-color: #2e2418;
+      padding: 60px 5vw 30px;
+      border-top: 2px solid #b8a97a;
+    }
+
+    .footer-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-column h3,
+    .footer-column h4 {
+      color: #b8a97a;
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+
+    .footer-column p,
+    .footer-column ul {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #b8a97a;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b8a97a;
+      font-size: 18px;
+      border: 1px solid #b8a97a;
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background-color: #b8a97a;
+      color: #2e2418;
+      transform: translateY(-6px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(184, 169, 122, 0.5);
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 12px 14px;
+      border: 1px solid #b8a97a;
+      background: #3a2f22;
+      color: #ffffff;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .newsletter-form button {
+      padding: 12px 14px;
+      background-color: #b8a97a;
+      color: #4a3d2c;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+      font-size: 15px;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #a4936b;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 14px;
+      color: #cfcfcf;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #6c5d47;
+    }
+
+    /* Alert Styles */
+    #subscribeAlert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #b8a97a;
+  color: #2e2418;
+  padding: 12px 28px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  display: none;
+  z-index: 9999;
+  animation: fadeInOut 3s ease forwards;
+  white-space: nowrap;
+  text-align: center;
+}
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+      10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 50px 6vw 20px;
+      }
+
+      .footer-column h3,
+      .footer-column h4 {
+        font-size: 18px;
+      }
+
+      .footer-column p,
+      .footer-column ul {
+        font-size: 14px;
+      }
+
+      .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-container {
+        flex-direction: column;
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-column {
+        text-align: center;
+      }
+
+      .footer-bottom {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+    }
+      .header-cart-link {
+    position: relative;
+    margin-left: 12px;
+    color: #a28b6a;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+
+  .header-cart-link:hover {
+    color: #2e2418;
+  }
+  .cart-count-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #a28b6a;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    line-height: 1;
+    border: 1px solid #fff;
+  }
+
+  </style>
+</head>
+<body>
+    <!-- NAV -->
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="brand-name">
+      <span>Retrospect Vintage</span>
+     <a href="cart.html" class="header-cart-link" title="View Cart">
+  <i class="fas fa-shopping-cart"></i>
+  <span class="cart-count-badge" id="cartCount">0</span>
+</a>
+    </div>
+  </nav>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <!-- SIDE MENU -->
+  <div class="side-menu" id="sideMenu">
+    <div class="close-btn" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+     <a href="index.html" class="nav-item"><i class="fas fa-home"></i> Home</a><hr class="nav-divider" />
+    <a href="aboutus.html" class="nav-item"><i class="fas fa-user"></i> About Us</a><hr class="nav-divider" />
+   <a href="collection.html" class="nav-item"><i class="fas fa-th-large"></i> Collection</a>
+<hr class="nav-divider" />
+   <a href="track.html" class="nav-item"><i class="fas fa-location-dot"></i> Track Order</a>
+<hr class="nav-divider" />
+    <a href="request.html" class="nav-item"><i class="fas fa-list"></i> Request List</a><hr class="nav-divider" />
+    <a href="sell.html" class="nav-item"><i class="fas fa-store"></i> Sell Your Items</a><hr class="nav-divider" />
+    <a href="contact.html" class="nav-item"><i class="fas fa-envelope"></i> Contact</a><hr class="nav-divider" />
+    <a href="faqs.html" class="nav-item"><i class="fas fa-question-circle"></i> FAQs</a><hr class="nav-divider" />
+    <a href="blog.html" class="nav-item"><i class="fas fa-blog"></i> Antique Blog</a><hr class="nav-divider" />
+    <a href="signin.html" class="nav-item"><i class="fas fa-sign-in-alt"></i> Sign In</a><hr class="nav-divider" />
+  </div>
+
+  <!-- CAROUSEL -->
+  <section class="carousel-section" id="carouselSection">
+    <div class="carousel-container" id="carousel">
+      <div class="carousel-slide">
+        <h2>Vintage Clocks</h2>
+        <p>Discover timeless elegance with our exquisite collection of vintage clocks, each telling a story of craftsmanship and heritage.</p>
+        <div class="italic-note">🕰️ Antique timepieces dating back to the 19th century</div>
+      </div>
+      <div class="carousel-slide">
+        <h2>Porcelain &amp; Ceramics</h2>
+        <p>Handcrafted porcelain and ceramic pieces, perfect for collectors and lovers of fine antique décor.</p>
+        <div class="italic-note">🏺 Unique finds from Asia and Europe</div>
+      </div>
+      <div class="carousel-slide">
+        <h2>Antique Jewelry</h2>
+        <p>Explore a curated selection of antique jewelry showcasing elegant craftsmanship and timeless beauty.</p>
+        <div class="italic-note">💍 Victorian rings, Art Deco necklaces, and more</div>
+      </div>
+      <div class="carousel-slide">
+        <h2>Fine Leather Goods</h2>
+        <p>Luxurious, vintage leather bags, wallets, and accessories crafted to last a lifetime.</p>
+        <div class="italic-note">👜 Hand-stitched and preserved heirlooms</div>
+      </div>
+      <div class="carousel-slide">
+        <h2>Antique Furniture</h2>
+        <p>Handcrafted wooden furniture from centuries past, blending artistry with functionality.</p>
+        <div class="italic-note">🪑 Classic designs with rich patinas</div>
+      </div>
+      <div class="carousel-slide">
+        <h2>Classic Books &amp; Manuscripts</h2>
+        <p>Rare, first edition books and manuscripts that inspire and educate across generations.</p>
+        <div class="italic-note">📚 Timeless literature preserved with care</div>
+      </div>
+      <div class="carousel-slide">
+        <h2>Vintage Clocks</h2>
+        <p>Discover timeless elegance with our exquisite collection of vintage clocks, each telling a story of craftsmanship and heritage.</p>
+        <div class="italic-note">🕰️ Antique timepieces dating back to the 19th century</div>
+      </div>
+    </div>
+  </section>
+
+    <header data-aos="fade-down">Antique Request List</header>
+
+  <div class="request-list-container" data-aos="fade-up">
+    <h2>Submitted Antique Requests</h2>
+
+    <!-- 20 REQUEST ITEMS -->
+    <!-- Use this pattern for each item -->
+    <!-- ICON, TITLE, NAME, EMAIL, LOCATION, DATE, STATUS (colored) -->
+
+ <!-- 1 -->
+<div class="request-item">
+  <i class="fas fa-chair request-icon"></i>
+  <div class="request-details">
+    <h3>Victorian Oak Rocking Chair</h3>
+    <p><strong>Submitted by:</strong> Elizabeth Thompson</p>
+    <p><strong>Email:</strong> eliza******@hotmail.com</p>
+    <p><strong>Location:</strong> Ontario - Toronto</p>
+    <p><strong>Date:</strong> July 4, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-clock request-icon"></i>
+  <div class="request-details">
+    <h3>French Gilt Wall Clock (1875)</h3>
+    <p><strong>Submitted by:</strong> Marcus Dubois</p>
+    <p><strong>Email:</strong> marcus******@outlook.ca</p>
+    <p><strong>Location:</strong> Quebec - Montreal</p>
+    <p><strong>Date:</strong> July 3, 2025</p>
+    <p class="status" style="color:#f39c12">Status: Pending</p>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-gem request-icon"></i>
+  <div class="request-details">
+    <h3>Edwardian Sapphire Brooch</h3>
+    <p><strong>Submitted by:</strong> Clara Weiss</p>
+    <p><strong>Email:</strong> clara******@yahoo.ca</p>
+    <p><strong>Location:</strong> Alberta - Calgary</p>
+    <p><strong>Date:</strong> July 2, 2025</p>
+    <p class="status" style="color:#e74c3c">Status: Rejected</p>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-camera-retro request-icon"></i>
+  <div class="request-details">
+    <h3>1940s Leica Film Camera</h3>
+    <p><strong>Submitted by:</strong> Hugo Sinclair</p>
+    <p><strong>Email:</strong> hugo******@outlook.com</p>
+    <p><strong>Location:</strong> BC - Vancouver</p>
+    <p><strong>Date:</strong> July 1, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-book request-icon"></i>
+  <div class="request-details">
+    <h3>First Edition - The Great Gatsby</h3>
+    <p><strong>Submitted by:</strong> Naomi Carter</p>
+    <p><strong>Email:</strong> naomi******@gmail.com</p>
+    <p><strong>Location:</strong> Nova Scotia - Halifax</p>
+    <p><strong>Date:</strong> June 30, 2025</p>
+    <p class="status" style="color:#f39c12">Status: Pending</p>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-vase request-icon"></i>
+  <div class="request-details">
+    <h3>Ming Dynasty Porcelain Vase</h3>
+    <p><strong>Submitted by:</strong> Jun Li</p>
+    <p><strong>Email:</strong> jun******@email.cn</p>
+    <p><strong>Location:</strong> BC - Richmond</p>
+    <p><strong>Date:</strong> June 28, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-scroll request-icon"></i>
+  <div class="request-details">
+    <h3>Ancient Egyptian Papyrus</h3>
+    <p><strong>Submitted by:</strong> Amina Zayed</p>
+    <p><strong>Email:</strong> amina******@yahoo.eg</p>
+    <p><strong>Location:</strong> Ontario - Mississauga</p>
+    <p><strong>Date:</strong> June 10, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-candle-holder request-icon"></i>
+  <div class="request-details">
+    <h3>18th Century Brass Candle Holder</h3>
+    <p><strong>Submitted by:</strong> Henry Dawson</p>
+    <p><strong>Email:</strong> henry******@hotmail.co.uk</p>
+    <p><strong>Location:</strong> Saskatchewan - Regina</p>
+    <p><strong>Date:</strong> June 26, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-balance-scale request-icon"></i>
+  <div class="request-details">
+    <h3>Old Merchant's Balance Scale</h3>
+    <p><strong>Submitted by:</strong> Bianca Rossi</p>
+    <p><strong>Email:</strong> bianca******@email.it</p>
+    <p><strong>Location:</strong> Quebec - Quebec City</p>
+    <p><strong>Date:</strong> June 24, 2025</p>
+    <p class="status" style="color:#e74c3c">Status: Rejected</p>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-hat-cowboy request-icon"></i>
+  <div class="request-details">
+    <h3>Vintage Cowboy Hat (1880)</h3>
+    <p><strong>Submitted by:</strong> James Walker</p>
+    <p><strong>Email:</strong> james******@gmail.com</p>
+    <p><strong>Location:</strong> Alberta - Red Deer</p>
+    <p><strong>Date:</strong> June 22, 2025</p>
+    <p class="status" style="color:#f39c12">Status: Pending</p>
+  </div>
+</div>
+
+<!-- 11 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-music request-icon"></i>
+  <div class="request-details">
+    <h3>Antique Phonograph Player</h3>
+    <p><strong>Submitted by:</strong> Alex Nguyen</p>
+    <p><strong>Email:</strong> alex******@hotmail.ca</p>
+    <p><strong>Location:</strong> British Columbia - Surrey</p>
+    <p><strong>Date:</strong> June 21, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 12 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-umbrella request-icon"></i>
+  <div class="request-details">
+    <h3>Victorian Lace Parasol</h3>
+    <p><strong>Submitted by:</strong> Eleanor Grace</p>
+    <p><strong>Email:</strong> ele******@gmail.com</p>
+    <p><strong>Location:</strong> Newfoundland - St. John's</p>
+    <p><strong>Date:</strong> June 19, 2025</p>
+    <p class="status" style="color:#e74c3c">Status: Rejected</p>
+  </div>
+</div>
+
+<!-- 13 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-ring request-icon"></i>
+  <div class="request-details">
+    <h3>Art Deco Emerald Ring</h3>
+    <p><strong>Submitted by:</strong> Ayesha Malik</p>
+    <p><strong>Email:</strong> ayesha******@outlook.com</p>
+    <p><strong>Location:</strong> Ontario - Ottawa</p>
+    <p><strong>Date:</strong> June 17, 2025</p>
+    <p class="status" style="color:#f39c12">Status: Pending</p>
+  </div>
+</div>
+
+<!-- 14 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-suitcase request-icon"></i>
+  <div class="request-details">
+    <h3>1920s Leather Travel Trunk</h3>
+    <p><strong>Submitted by:</strong> Tomas Becker</p>
+    <p><strong>Email:</strong> tomas******@email.de</p>
+    <p><strong>Location:</strong> Manitoba - Brandon</p>
+    <p><strong>Date:</strong> June 16, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 15 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-coffee request-icon"></i>
+  <div class="request-details">
+    <h3>Mid-Century Ceramic Teapot</h3>
+    <p><strong>Submitted by:</strong> Kiara Jenkins</p>
+    <p><strong>Email:</strong> kiara******@gmail.ca</p>
+    <p><strong>Location:</strong> PEI - Charlottetown</p>
+    <p><strong>Date:</strong> June 14, 2025</p>
+    <p class="status" style="color:#f39c12">Status: Pending</p>
+  </div>
+</div>
+
+<!-- 16 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-typewriter request-icon"></i>
+  <div class="request-details">
+    <h3>1930s Royal Typewriter</h3>
+    <p><strong>Submitted by:</strong> David Ortiz</p>
+    <p><strong>Email:</strong> david******@outlook.com</p>
+    <p><strong>Location:</strong> Ontario - Guelph</p>
+    <p><strong>Date:</strong> June 12, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 17 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-bible request-icon"></i>
+  <div class="request-details">
+    <h3>17th Century Family Bible</h3>
+    <p><strong>Submitted by:</strong> Mary Smith</p>
+    <p><strong>Email:</strong> mary******@hotmail.com</p>
+    <p><strong>Location:</strong> Quebec - Sherbrooke</p>
+    <p><strong>Date:</strong> June 10, 2025</p>
+    <p class="status" style="color:#e74c3c">Status: Rejected</p>
+  </div>
+</div>
+
+<!-- 18 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-map request-icon"></i>
+  <div class="request-details">
+    <h3>Colonial-Era World Map</h3>
+    <p><strong>Submitted by:</strong> Samuel Dube</p>
+    <p><strong>Email:</strong> sam******@yahoo.za</p>
+    <p><strong>Location:</strong> Alberta - Edmonton</p>
+    <p><strong>Date:</strong> June 8, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+
+<!-- 19 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-bug request-icon"></i>
+  <div class="request-details">
+    <h3>Victorian Taxidermy Beetle Box</h3>
+    <p><strong>Submitted by:</strong> Lucia Montoya</p>
+    <p><strong>Email:</strong> lucia******@outlook.mx</p>
+    <p><strong>Location:</strong> Yukon - Whitehorse</p>
+    <p><strong>Date:</strong> June 6, 2025</p>
+    <p class="status" style="color:#e74c3c">Status: Rejected</p>
+  </div>
+</div>
+
+<!-- 20 -->
+<div class="request-item" data-aos="zoom-in">
+  <i class="fas fa-archway request-icon"></i>
+  <div class="request-details">
+    <h3>Ancient Roman Architectural Fragment</h3>
+    <p><strong>Submitted by:</strong> Antonius Castor</p>
+    <p><strong>Email:</strong> antonius******@gmail.it</p>
+    <p><strong>Location:</strong> Ontario - Hamilton</p>
+    <p><strong>Date:</strong> June 4, 2025</p>
+    <p class="status" style="color:#2ecc71">Status: Successful</p>
+  </div>
+</div>
+    
+  </div>
+
+  <div class="request-footer">
+    <p><i class="fas fa-shield-alt"></i> All requests are confidential and protected by our privacy standards.</p>
+  </div>
+  <!-- ANTIQUE NOTICE MODAL OVERLAY -->
+<div id="infoNoticeOverlay" class="antique-overlay"></div>
+
+<!-- ANTIQUE NOTICE MODAL -->
+<div id="infoNoticeModal" class="antique-modal">
+  <div class="antique-modal-box" data-aos="fade-down">
+    <button class="antique-close-btn" onclick="closeInfoNotice()">&times;</button>
+    <h3>📜 Notice</h3>
+    <p>
+      Please note: Only the most recent 20 antique requests are displayed on this page.
+      The list is automatically updated as new submissions are received.
+    </p>
+  </div>
+</div>
+ <!-- Floating Button -->
+  <button class="float-btn" onclick="openModal()">
+    <i class="fas fa-plus-circle"></i> Request Antique
+  </button>
+
+  <!-- Request Form Modal -->
+  <div class="modal-overlay" id="formModal">
+    <div class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h2>Request an Antique</h2>
+      <form id="antiqueForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="text" id="location" placeholder="Location (City - Province)" required>
+        <input type="text" id="item" placeholder="Antique Name" required>
+        <textarea id="desc" placeholder="Describe the antique briefly..." required></textarea>
+
+        <div class="file-upload">
+          <label for="fileInput" class="custom-upload">
+            <i class="fas fa-upload fa-lg"></i> &nbsp; Upload File
+          </label>
+          <input type="file" id="fileInput" required>
+          <div class="file-info" id="fileInfo">No file selected</div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <span class="modal-close" onclick="closeSuccessModal()">&times;</span>
+      <div class="modal-message success">
+        <i class="fas fa-check-circle fa-3x"></i>
+        <h2>Request Submitted!</h2>
+        <p>Thank you for your antique request. We'll be in touch soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div class="modal-overlay" id="errorModal">
+    <div class="modal">
+      <span class="modal-close" onclick="closeErrorModal()">&times;</span>
+      <div class="modal-message error">
+        <i class="fas fa-times-circle fa-3x"></i>
+        <h2>Submission Failed</h2>
+        <p>Please complete all fields and upload a file.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Footer Start -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- About -->
+      <div class="footer-column">
+        <h3>Retrospect Vintage</h3>
+        <p>
+          At Retrospect Vintage, we curate timeless treasures — from Victorian pieces to Art Deco rarities. We bring heritage to your home, ethically sourced and authentically restored.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/retrospectvintage085" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="footer-column">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Furniture</a></li>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Ceramics</a></li>
+          <li><a href="#">Textiles</a></li>
+          <li><a href="#">Wall Art</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+          <li><a href="collection.html">Shop</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-column">
+        <h4>Stay in the Loop</h4>
+        <p>Get exclusive antique drops & updates directly in your inbox.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNewsletter(event)">
+          <input type="email" id="newsletterEmail" placeholder="Your Email Address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Retrospect Vintage. All rights reserved. | Crafted with heritage.
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Subscribe Alert -->
+  <div id="subscribeAlert">Thank you for subscribing!</div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function subscribeNewsletter(event) {
+      event.preventDefault(); // Prevent page reload
+      const emailInput = document.getElementById("newsletterEmail");
+      if (emailInput.value.trim() !== "") {
+        const alertBox = document.getElementById("subscribeAlert");
+        alertBox.style.display = "block";
+        emailInput.value = "";
+        setTimeout(() => {
+          alertBox.style.display = "none";
+        }, 3000);
+      }
+      return false;
+    }
+  </script>
+      <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      const overlay = document.getElementById("overlay");
+      const isOpen = menu.classList.contains("show");
+      menu.classList.toggle("show");
+      overlay.classList.toggle("show");
+      document.body.classList.toggle("menu-open", !isOpen);
+    }
+
+    const carousel = document.getElementById("carousel");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let interval;
+
+    function moveToSlide(index) {
+      carousel.style.transition = "transform 1s ease-in-out";
+      carousel.style.transform = `translateX(-${index * 100}vw)`;
+    }
+
+    function moveToNextSlide() {
+      currentIndex++;
+      moveToSlide(currentIndex);
+      if (currentIndex === totalSlides - 1) {
+        setTimeout(() => {
+          carousel.style.transition = "none";
+          carousel.style.transform = `translateX(0)`;
+          currentIndex = 0;
+        }, 1000);
+      }
+    }
+
+    function startAutoSlide() {
+      interval = setInterval(moveToNextSlide, 4000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    startAutoSlide();
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const section = document.getElementById("carouselSection");
+    section.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoSlide();
+    });
+
+    section.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      startAutoSlide();
+    });
+
+    function handleSwipe() {
+      const swipeDistance = touchEndX - touchStartX;
+      if (swipeDistance > 50 && currentIndex > 0) {
+        currentIndex--;
+        moveToSlide(currentIndex);
+      } else if (swipeDistance < -50) {
+        moveToNextSlide();
+      }
+    }
+  </script>
+  <!-- JavaScript -->
+  <script>
+  const formModal = document.getElementById('formModal');
+  const successModal = document.getElementById('successModal');
+  const errorModal = document.getElementById('errorModal');
+  const fileInput = document.getElementById('fileInput');
+  const fileInfo = document.getElementById('fileInfo');
+  const progressBar = document.querySelector('.progress-bar');
+  const progressFill = document.getElementById('progressFill');
+
+  function openModal() {
+    formModal.style.display = 'flex';
+    document.body.classList.add('modal-open');
+    document.querySelector('#formModal .modal').scrollTop = 0;
+  }
+
+  function closeModal() {
+    formModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  }
+
+  function closeSuccessModal() {
+    successModal.style.display = 'none';
+  }
+
+  function closeErrorModal() {
+    errorModal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target === formModal) closeModal();
+    if (event.target === successModal) closeSuccessModal();
+    if (event.target === errorModal) closeErrorModal();
+  };
+
+  document.querySelector('.custom-upload').addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) {
+      const file = fileInput.files[0];
+      const sizeInKB = (file.size / 1024).toFixed(1);
+      fileInfo.textContent = `File: ${file.name} (${sizeInKB} KB)`;
+
+      progressBar.style.display = 'block';
+      progressFill.style.width = '0%';
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(interval);
+        } else {
+          progress += 10;
+          progressFill.style.width = progress + '%';
+        }
+      }, 80);
+    } else {
+      fileInfo.textContent = 'No file selected';
+      progressBar.style.display = 'none';
+    }
+  });
+
+  document.getElementById("antiqueForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const item = document.getElementById("item").value.trim();
+    const desc = document.getElementById("desc").value.trim();
+    const fileUploaded = fileInput.files.length > 0;
+
+    if (name && email && location && item && desc && fileUploaded) {
+      closeModal();
+      successModal.style.display = "flex";
+
+      setTimeout(() => {
+        document.getElementById("antiqueForm").reset();
+        fileInfo.textContent = 'No file selected';
+        progressFill.style.width = '0%';
+        progressBar.style.display = 'none';
+      }, 1500);
+    } else {
+      errorModal.style.display = "flex";
+    }
+  });
+</script>
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true      // only animate once
+  });
+</script>
+<script>
+  function closeInfoNotice() {
+    document.getElementById("infoNoticeModal").style.display = "none";
+    document.getElementById("infoNoticeOverlay").style.display = "none";
+  }
+
+  window.addEventListener("load", () => {
+    const modal = document.getElementById("infoNoticeModal");
+    const overlay = document.getElementById("infoNoticeOverlay");
+
+    modal.style.display = "block";
+    overlay.style.display = "block";
+
+    setTimeout(() => {
+      closeInfoNotice();
+    }, 5000);
+  });
+</script>
+<script>
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find(item => item.id === product.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    const badge = document.getElementById("cartCount");
+    if (badge) badge.textContent = count;
+  }
+
+  document.addEventListener("DOMContentLoaded", updateCartCount);
+</script>
+</body>
+</html>
